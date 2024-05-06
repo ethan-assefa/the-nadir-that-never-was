@@ -7,6 +7,7 @@ library(haven) # For loading in .dta files
 library(naniar) # For seeing missingness
 library(tidycensus) # For getting built in state-county FIPS data 
 
+
 # Loads in the R environment containing the final versions of our clean data, as well as functions made
 load("AnalysisData_Clean.RData")
 # Can also read in CSV files from directory if needed 
@@ -16,4 +17,5 @@ reveal_dataset(B_Elect_State_Year)
 reveal_dataset(B_Elect_Year)
 reveal_dataset(Hist_US_Stat_Main)
 reveal_dataset(Hist_US_Stat_OccupDispar)
+
 

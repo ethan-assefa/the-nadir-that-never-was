@@ -613,7 +613,7 @@ Wrkfrce_ttls <- rep(Wrkfrce_ttls, each = 3)
 # Dropped Labor participation [redundant], Work participation [redundant], fertility and mortality [too much missingness]
 Hist_US_Stat_Main <- Race_PopSchEnrlIlitInstWrkChld %>%
   mutate(`Workforce_10+_Totals_Count` = Wrkfrce_ttls, .after = `Workforce_10+_Count`) %>% 
-  filter(Year >= 1850 & Year < 1950) %>% 
+  #filter(Year >= 1830 & Year < 1950) %>% 
   select(-c(Institutionalized_Counts)) %>% 
   rowwise() %>% 
   mutate(`Workforce_10+_Prop` = `Workforce_10+_Count`/`Workforce_10+_Totals_Count`, .after = `Workforce_10+_Totals_Count`) %>% 
@@ -627,24 +627,24 @@ Hist_US_Stat_Main <- Race_PopSchEnrlIlitInstWrkChld %>%
 Hist_US_Stat_OccupDispar <- Race_OccupSegregation %>% 
   select(Year, WhiteMenAndNonwhiteMenCompared_Index, WhiteWomenAndNonwhiteWomenCompared_Index) %>% 
   rename(WhiteM_NonwhiteM_Index = WhiteMenAndNonwhiteMenCompared_Index, 
-         WhiteF_NonwhiteF_Index = WhiteWomenAndNonwhiteWomenCompared_Index) %>% 
-  filter(Year >= 1850 & Year < 1950)
+         WhiteF_NonwhiteF_Index = WhiteWomenAndNonwhiteWomenCompared_Index) #%>% 
+  #filter(Year >= 1830 & Year < 1950)
 
 # B_Elect_State_Year (formerly black_elect_state_years)
 # Contains data from Black politicians
 # Stratified by states and years
 # Start at 1845 time range to better match with other data
 B_Elect_State_Year <- black_elect_state_years %>% 
-  rename(Black_Elect_Count = n) %>% 
-  filter(Year >= 1845 & Year < 1950)
+  rename(Black_Elect_Count = n) #%>% 
+  #filter(Year >= 1830 & Year < 1950)
 
 # B_Elect_Year (formerly black_elect_years)
 # Contains data from Black politicians
 # Stratified only by years
 # Start at 1845 time range to better match with other data
 B_Elect_Year <- black_elect_years %>% 
-  rename(Black_Elect_Count = n) %>% 
-  filter(Year >= 1845 & Year < 1950)
+  rename(Black_Elect_Count = n) #%>% 
+  #filter(Year >= 1830 & Year < 1950)
 
 # Reconstruction_ElectVoter (formerly BlkElect_Votr67_Recon)
 # Contains data from Black politicians, registered voters, reconstruction info
